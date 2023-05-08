@@ -39,7 +39,7 @@ tracks/0/keys = {
 shader = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 2.5, 1.5 )
+extents = Vector2( 4.5, 1.5 )
 
 [node name="Panel" type="StaticBody2D"]
 

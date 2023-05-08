@@ -27,3 +27,9 @@ func remove_interactable(interactable: IInteractable) -> void:
 func take_card(card: CardModel) -> void:
 	_card = card
 	_anim.change_anim("Take", false)
+	$GUI.set_card(_card)
+	
+func has_card() -> bool:
+	if _card == null:
+		return false
+	return true

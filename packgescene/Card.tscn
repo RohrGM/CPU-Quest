@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/card_2.png" type="Texture" id=1]
 [ext_resource path="res://script/jitter.gdshader" type="Shader" id=2]
 [ext_resource path="res://script/packege/CardScene.gd" type="Script" id=3]
 
@@ -63,11 +63,7 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
-hframes = 16
-vframes = 30
-frame = 97
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "active"

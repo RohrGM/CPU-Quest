@@ -9,7 +9,7 @@ shader = ExtResource( 2 )
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 144, 64, 48, 64 )
+region = Rect2( 144, 64, 48, 48 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21, 18.5 )
@@ -18,7 +18,7 @@ extents = Vector2( 21, 18.5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( 0, -11 )
+position = Vector2( 0, -19 )
 texture = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

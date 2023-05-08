@@ -19,9 +19,9 @@ func update_anim_tree(input: Vector2) -> void:
 	if input != Vector2.ZERO:
 		_travel_anim("Run")
 		if input.x > 0:
-			$Sprite.flip_h = false
+			$Sprite.scale.x = 1
 		if input.x < 0:
-			$Sprite.flip_h = true
+			$Sprite.scale.x = -1
 	else:
 		_travel_anim("Idle")
 	
