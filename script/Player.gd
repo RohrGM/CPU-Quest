@@ -1,35 +1,60 @@
-extends IPlayer
+extends KinematicBody2D
 
 var _card: CardModel
-var _interactable: IInteractable
+var _interactable: StaticBody2D
 var _anim: Node2D
+var _gui: CanvasLayer
+var _card_sprite: Sprite
 
-func _ready():
-	_anim = $Animation
-
-func _physics_process(_delta: float) -> void:
-	var input_vector : Vector2 = $MovimentPlayer.move(_delta, _anim.is_free())
-	
-	_anim.update_anim_tree(input_vector)
-
-func _unhandled_input(event):
-	if event.is_action_pressed("interact"):
-		if(_interactable != null):
-			_interactable.interaction(self)
-		
-func set_interactable(interactable: IInteractable) -> void:
+####### PUBLIC ###########################################################
+func set_interactable(interactable: StaticBody2D) -> void:
 	_interactable = interactable
+	_gui.set_message(_interactable.get_interaction_message())
 	
-func remove_interactable(interactable: IInteractable) -> void:
+func remove_interactable(interactable: StaticBody2D) -> void:
+	_gui.set_message('')
 	if _interactable == interactable:
 		_interactable = null
 	
 func take_card(card: CardModel) -> void:
-	_card = card
 	_anim.change_anim("Take", false)
-	$GUI.set_card(_card)
+	_gui.set_message(_interactable.get_interaction_message())
+	_set_card(card)
+	
+func send_card() -> void:
+	_start_send_card()
 	
 func has_card() -> bool:
 	if _card == null:
 		return false
 	return true
+	
+####### PRIVATE ##########################################################
+func _ready():
+	_anim = $Animation
+	_gui = $GUI
+	_card_sprite = $Animation/Sprite/Card
+
+func _physics_process(_delta: float) -> void:
+	var input_vector : Vector2 = $MovimentPlayer.move(_delta, _anim.is_free())	
+	_anim.update_anim_tree(input_vector)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("interact"):
+		if(_interactable != null and _anim.is_free()):
+			_interactable.interaction(self)
+			
+func _set_card(card: CardModel) -> void:
+	_card = card
+	_gui.set_card(_card)
+	_card_sprite.texture.atlas = null if card == null else load(_card.get_path_img())
+
+func _start_send_card() -> void:
+	_anim.change_anim("Send", false)
+	
+func _end_send_card() -> void:
+	_interactable.take_card(_card)
+	_gui.set_message(_interactable.get_interaction_message())
+	_set_card(null)
+			
+####### SIGNALS ##########################################################

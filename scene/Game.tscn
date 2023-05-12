@@ -47,14 +47,8 @@ shape = SubResource( 2 )
 
 [node name="Objects" type="YSort" parent="."]
 
-[node name="Pod" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 96 )
-
 [node name="Pod2" parent="Objects" instance=ExtResource( 2 )]
 position = Vector2( 28, 112 )
-
-[node name="Pod3" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 126 )
 
 [node name="Pod4" parent="Objects" instance=ExtResource( 2 )]
 position = Vector2( 28, 142 )

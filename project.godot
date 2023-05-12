@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://script/model/CardModel.gd"
 }, {
-"base": "StaticBody2D",
-"class": "IInteractable",
-"language": "GDScript",
-"path": "res://script/Interface/IInteractable.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "IPlayer",
-"language": "GDScript",
-"path": "res://script/Interface/IPlayer.gd"
-}, {
 "base": "Node",
 "class": "PodModel",
 "language": "GDScript",
@@ -31,8 +21,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CardModel": "",
-"IInteractable": "",
-"IPlayer": "",
 "PodModel": ""
 }
 
@@ -46,6 +34,7 @@ config/icon="res://icon.png"
 
 window/size/width=320
 window/size/height=180
+window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"

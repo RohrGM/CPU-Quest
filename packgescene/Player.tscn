@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://script/jitter.gdshader" type="Shader" id=1]
 [ext_resource path="res://script/Player.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://script/AnimationPlayer.gd" type="Script" id=5]
 [ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=6]
 [ext_resource path="res://script/GUI.gd" type="Script" id=7]
+[ext_resource path="res://assets/img/card_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/font/Dynamicfont.tres" type="DynamicFont" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
@@ -20,10 +22,10 @@ width = 10
 [sub_resource type="ShaderMaterial" id=21]
 shader = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 240, 32, 2, 2 )
+atlas = ExtResource( 8 )
+region = Rect2( 4, 7, 2, 2 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
@@ -117,6 +119,20 @@ tracks/4/keys = {
 "values": [ {
 "args": [ true ],
 "method": "set_free_anim"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_end_send_card"
 } ]
 }
 
@@ -219,11 +235,11 @@ tracks/4/keys = {
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "Push"
-
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "Push"
 
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "Take"
@@ -247,13 +263,13 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachine" id=11]
 states/Idle/node = SubResource( 13 )
 states/Idle/position = Vector2( 230, 211 )
-states/Push/node = SubResource( 23 )
-states/Push/position = Vector2( 398, 211 )
 states/Run/node = SubResource( 14 )
 states/Run/position = Vector2( 230, 94 )
+states/Send/node = SubResource( 23 )
+states/Send/position = Vector2( 398, 211 )
 states/Take/node = SubResource( 24 )
 states/Take/position = Vector2( 51, 211 )
-transitions = [ "Idle", "Run", SubResource( 15 ), "Run", "Idle", SubResource( 16 ), "Idle", "Push", SubResource( 25 ), "Push", "Idle", SubResource( 26 ), "Take", "Idle", SubResource( 27 ), "Idle", "Take", SubResource( 28 ) ]
+transitions = [ "Idle", "Run", SubResource( 15 ), "Run", "Idle", SubResource( 16 ), "Idle", "Send", SubResource( 25 ), "Send", "Idle", SubResource( 26 ), "Take", "Idle", SubResource( 27 ), "Idle", "Take", SubResource( 28 ) ]
 start_node = "Idle"
 end_node = "Idle"
 
@@ -287,7 +303,7 @@ position = Vector2( 1, -15 )
 texture = ExtResource( 3 )
 hframes = 4
 vframes = 14
-frame = 1
+frame = 2
 
 [node name="Shadow" type="Sprite" parent="Animation/Sprite"]
 visible = false
@@ -297,10 +313,9 @@ scale = Vector2( 0.66875, 1.375 )
 texture = SubResource( 17 )
 
 [node name="Card" type="Sprite" parent="Animation/Sprite"]
-self_modulate = Color( 0.152941, 0.933333, 0.0156863, 1 )
 material = SubResource( 21 )
 position = Vector2( 7, 1 )
-texture = SubResource( 19 )
+texture = SubResource( 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
@@ -344,3 +359,8 @@ margin_top = -61.0
 margin_right = -18.0
 margin_bottom = -45.0
 rect_scale = Vector2( 2, 2 )
+
+[node name="Message" type="Label" parent="GUI/Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 9 )
