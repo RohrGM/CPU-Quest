@@ -1,17 +1,17 @@
 extends KinematicBody2D
 
 var _card: CardModel
-var _interactable: StaticBody2D
+var _interactable: Node2D
 var _anim: Node2D
 var _gui: CanvasLayer
 var _card_sprite: Sprite
 
 ####### PUBLIC ###########################################################
-func set_interactable(interactable: StaticBody2D) -> void:
+func set_interactable(interactable: Node2D) -> void:
 	_interactable = interactable
 	_gui.set_message(_interactable.get_interaction_message())
 	
-func remove_interactable(interactable: StaticBody2D) -> void:
+func remove_interactable(interactable: Node2D) -> void:
 	_gui.set_message('')
 	if _interactable == interactable:
 		_interactable = null
