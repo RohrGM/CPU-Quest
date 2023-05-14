@@ -16,7 +16,7 @@ func set_free_anim(free: bool) -> void:
 	_free = free
 
 func update_anim_tree(input: Vector2) -> void:
-	if input != Vector2.ZERO:
+	if input != Vector2.ZERO and _free:
 		_travel_anim("Run")
 		if input.x > 0:
 			$Sprite.scale.x = 1
