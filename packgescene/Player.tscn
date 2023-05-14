@@ -1,14 +1,15 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://script/jitter.gdshader" type="Shader" id=1]
-[ext_resource path="res://script/Player.gd" type="Script" id=2]
+[ext_resource path="res://script/shader/jitter.gdshader" type="Shader" id=1]
+[ext_resource path="res://script/packege/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/player.png" type="Texture" id=3]
-[ext_resource path="res://script/MovimentPlayer.gd" type="Script" id=4]
-[ext_resource path="res://script/AnimationPlayer.gd" type="Script" id=5]
+[ext_resource path="res://script/packege/MovimentPlayer.gd" type="Script" id=4]
+[ext_resource path="res://script/packege/AnimationPlayer.gd" type="Script" id=5]
 [ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=6]
-[ext_resource path="res://script/GUI.gd" type="Script" id=7]
+[ext_resource path="res://script/packege/GUI.gd" type="Script" id=7]
 [ext_resource path="res://assets/img/card_2.png" type="Texture" id=8]
 [ext_resource path="res://assets/font/Dynamicfont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/font/Default.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
@@ -279,12 +280,15 @@ end_node = "Idle"
 shader = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=31]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 160, 112, 64, 64 )
 
 [sub_resource type="ShaderMaterial" id=29]
 shader = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 9
+font_data = ExtResource( 11 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
@@ -306,7 +310,6 @@ vframes = 14
 frame = 2
 
 [node name="Shadow" type="Sprite" parent="Animation/Sprite"]
-visible = false
 modulate = Color( 1, 1, 1, 0.313726 )
 position = Vector2( 2.38419e-07, 15 )
 scale = Vector2( 0.66875, 1.375 )
@@ -348,19 +351,67 @@ margin_right = 316.0
 margin_bottom = 180.0
 texture = SubResource( 31 )
 
-[node name="Card" type="TextureRect" parent="GUI/Control"]
+[node name="Card" type="TextureRect" parent="GUI/Control/Book"]
+self_modulate = Color( 1, 1, 1, 0.72549 )
 material = SubResource( 29 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -34.0
-margin_top = -61.0
-margin_right = -18.0
-margin_bottom = -45.0
+margin_left = -30.0
+margin_top = -38.0
+margin_right = -14.0
+margin_bottom = -22.0
 rect_scale = Vector2( 2, 2 )
 
+[node name="Id" type="Label" parent="GUI/Control/Book"]
+margin_left = 14.0
+margin_top = 2.0
+margin_right = 69.0
+margin_bottom = 11.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = SubResource( 33 )
+
+[node name="Init" type="Label" parent="GUI/Control/Book"]
+margin_left = 14.0
+margin_top = 8.0
+margin_right = 114.0
+margin_bottom = 17.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = SubResource( 33 )
+
+[node name="Service" type="Label" parent="GUI/Control/Book"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 106.0
+margin_bottom = 23.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = SubResource( 33 )
+
+[node name="Priority" type="Label" parent="GUI/Control/Book"]
+margin_left = 14.0
+margin_top = 20.0
+margin_right = 106.0
+margin_bottom = 29.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = SubResource( 33 )
+
+[node name="Row" type="Label" parent="GUI/Control/Book"]
+margin_left = 14.0
+margin_top = 26.0
+margin_right = 106.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = SubResource( 33 )
+
 [node name="Message" type="Label" parent="GUI/Control"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 49.0
+margin_bottom = 10.0
 custom_fonts/font = ExtResource( 9 )

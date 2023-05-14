@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://script/shader/outline.gdshader" type="Shader" id=1]
+[ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=2]
+[ext_resource path="res://script/packege/Controller.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 112, 128, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 160, 128, 48 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+} ]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 11 ]
+}
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.5, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 9.5, 4.5 )
+
+[node name="Controller" type="YSort"]
+script = ExtResource( 3 )
+
+[node name="Terminal" type="Node2D" parent="."]
+position = Vector2( 42, -59 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Terminal"]
+frames = SubResource( 4 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="Panel" type="StaticBody2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
+root_node = NodePath("../Sprite")
+autoplay = "Idle"
+anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+material = SubResource( 5 )
+position = Vector2( 0, -12 )
+texture = ExtResource( 2 )
+hframes = 16
+vframes = 15
+frame = 11
+region_rect = Rect2( 0, 0, 16, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel"]
+visible = false
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.5, 1.5 )
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

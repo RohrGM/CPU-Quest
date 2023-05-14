@@ -1,20 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=1]
 [ext_resource path="res://packgescene/Card.tscn" type="PackedScene" id=2]
 [ext_resource path="res://script/packege/PodScene.gd" type="Script" id=3]
-[ext_resource path="res://script/jitter.gdshader" type="Shader" id=4]
+[ext_resource path="res://script/shader/outline.gdshader" type="Shader" id=4]
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
 shader = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 4 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 48, 64, 16, 32 )
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_thickness = 0.0
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 4.5 )
@@ -54,22 +49,16 @@ tracks/0/keys = {
 "values": [ 33, 34 ]
 }
 
-[node name="Pod" type="StaticBody2D"]
+[node name="Pod" type="StaticBody2D" groups=["Pod"]]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 11 )
 position = Vector2( 0, -5 )
 texture = ExtResource( 1 )
 hframes = 16
 vframes = 15
 frame = 34
-
-[node name="Selected" type="Sprite" parent="."]
-visible = false
-material = SubResource( 8 )
-position = Vector2( 0, -5 )
-texture = SubResource( 3 )
 
 [node name="Card" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -7 )
