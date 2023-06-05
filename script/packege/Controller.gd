@@ -10,8 +10,9 @@ var _scenario: Node2D
 
 ####### PUBLIC ###########################################################
 func interaction(player: KinematicBody2D) -> void:
-	if _has_card() and _card.is_finish():
-		_send_card(player)
+	if _has_card():
+		if _card.is_finish():
+			_send_card(player)
 		return
 	player.send_card()
 
@@ -26,13 +27,16 @@ func get_interaction_message() -> String:
 	 
 func set_timer(time: int) -> void:
 	_time = time
+	$Terminal.set_timer(_time)
 	if _card:
-		if not _card.is_finish():
-			_card.add_run_time(1)
-			$Terminal.update_card(_card)
-			$Terminal.set_timer(_time)
-		else:
+		_card.add_run_time(1)
+		$Terminal.update_card(_card)
+		
+		if _card.is_finish():
 			_scenario.set_processing(false)
+		else:
+			_scenario.set_processing(true)
+			
 
 ####### PRIVATE ##########################################################
 func _ready():

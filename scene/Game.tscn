@@ -121,17 +121,19 @@ position = Vector2( -47, 0 )
 [node name="Handrail10" parent="Objects/Decoration/Handrail" instance=ExtResource( 5 )]
 position = Vector2( -15, 0 )
 
-[node name="End" parent="Objects" instance=ExtResource( 12 )]
-position = Vector2( 234, 132 )
-
 [node name="Controller" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 124, 87 )
 
+[node name="End" parent="Objects" instance=ExtResource( 12 )]
+position = Vector2( 234, 122 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 161, 91 )
+position = Vector2( 160, 90 )
 current = true
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 0
 wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

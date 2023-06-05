@@ -11,10 +11,8 @@ var _timer: Timer
 ####### PUBLIC ###########################################################
 func set_processing(status: bool) -> void:
 	_processing = status
-	if _processing and _timer.is_stopped():
+	if _processing:
 		_timer.start()
-	else:
-		_timer.stop()
 		
 ####### PRIVATE ##########################################################
 func _ready() -> void:
@@ -27,7 +25,8 @@ func _ready() -> void:
 	_processing = false
 	for pod in _pods:
 		pod.take_card(_generate_card())
-
+func _run_cycle() -> void:
+	pass
 func _generate_card() -> CardModel:
 	_total_pods += 1
 	return CardModel.new(5, _rng.randi_range(1, 3), _total_pods, _rng.randi_range(1, 10))
