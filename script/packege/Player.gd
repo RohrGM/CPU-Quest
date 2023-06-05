@@ -27,7 +27,13 @@ func send_card() -> void:
 func has_card() -> bool:
 	if _card == null:
 		return false
+		
 	return true
+	
+func _has_finished_card() -> bool:
+	if _card == null:
+		return false
+	return _card.is_finish()
 	
 ####### PRIVATE ##########################################################
 func _ready():

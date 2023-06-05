@@ -307,7 +307,6 @@ position = Vector2( 1, -15 )
 texture = ExtResource( 3 )
 hframes = 4
 vframes = 14
-frame = 2
 
 [node name="Shadow" type="Sprite" parent="Animation/Sprite"]
 modulate = Color( 1, 1, 1, 0.313726 )

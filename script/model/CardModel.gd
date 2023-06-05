@@ -17,6 +17,13 @@ func _init(init_time: int, priority: int, id: int, service_time: int):
 	_service_time = service_time
 	_card_path = "res://assets/img/card_" + String(_priority) + ".png"
 	_run_time = 0
+	
+func add_run_time(value: int) -> bool:
+	_run_time += value
+	return is_finish()
+	
+func is_finish() -> bool:
+	return true if _run_time >= _service_time else false
 
 func get_id() -> int:
 	return _id

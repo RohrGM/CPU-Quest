@@ -39,7 +39,7 @@ func _has_card() -> bool:
 ####### SIGNALS ##########################################################
 func _on_Area2D_body_entered(_body: Node) -> void:
 	if _body.is_in_group("Player"):
-		if _body.has_card() and _has_card():
+		if _body.has_card() and _has_card() or _body._has_finished_card():
 			_current_message = ''
 			return
 

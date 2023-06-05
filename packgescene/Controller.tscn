@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=2]
 [ext_resource path="res://script/packege/Controller.gd" type="Script" id=3]
 [ext_resource path="res://assets/font/TerminalFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://assets/img/card_1.png" type="Texture" id=5]
 [ext_resource path="res://script/shader/jitter.gdshader" type="Shader" id=6]
+[ext_resource path="res://script/packege/Terminal.gd" type="Script" id=7]
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
@@ -75,6 +75,7 @@ script = ExtResource( 3 )
 
 [node name="Terminal" type="Node2D" parent="."]
 position = Vector2( 42, -59 )
+script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Terminal"]
 frames = SubResource( 4 )
@@ -102,27 +103,95 @@ valign = 1
 [node name="Box1" type="ColorRect" parent="Terminal"]
 margin_left = -52.0
 margin_top = -17.0
-margin_right = -22.0
+margin_right = -8.0
 margin_bottom = 18.0
 color = Color( 0.172549, 0.741176, 0.745098, 1 )
 
-[node name="Label" type="Label" parent="Terminal/Box1"]
-margin_right = 75.0
-margin_bottom = 13.0
+[node name="Status" type="Label" parent="Terminal/Box1"]
+margin_left = 43.0
+margin_top = 1.0
+margin_right = 130.0
+margin_bottom = 14.0
 rect_scale = Vector2( 0.4, 0.4 )
 custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Executando..."
+text = "Aguardando Processo"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Card" type="TextureRect" parent="Terminal/Box1"]
+material = SubResource( 9 )
+margin_left = 44.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 18.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Id" type="Label" parent="Terminal/Box1"]
+margin_top = 1.0
+margin_right = 110.0
+margin_bottom = 10.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Entidade: --"
 align = 1
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="Terminal/Box1"]
-material = SubResource( 9 )
-margin_left = 6.0
-margin_top = 16.0
-margin_right = 22.0
+[node name="Priority" type="Label" parent="Terminal/Box1"]
+margin_top = 6.0
+margin_right = 110.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Prioridade: --"
+align = 1
+
+[node name="InitT" type="Label" parent="Terminal/Box1"]
+margin_top = 11.0
+margin_right = 110.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Inicio Atendimento:"
+align = 1
+
+[node name="InitT2" type="Label" parent="Terminal/Box1"]
+margin_top = 19.0
+margin_right = 110.0
+margin_bottom = 28.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Tempo Atendimento:"
+align = 1
+
+[node name="Init" type="Label" parent="Terminal/Box1"]
+margin_top = 15.0
+margin_right = 110.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "--"
+align = 1
+valign = 1
+
+[node name="Service" type="Label" parent="Terminal/Box1"]
+margin_left = 1.0
+margin_top = 23.0
+margin_right = 108.0
 margin_bottom = 32.0
-texture = ExtResource( 5 )
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.105882, 0.921569, 0.733333, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "--"
+align = 1
+valign = 1
 
 [node name="Panel" type="StaticBody2D" parent="."]
 

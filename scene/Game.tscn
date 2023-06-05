@@ -24,7 +24,7 @@ extents = Vector2( 1, 51.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 161, 1 )
 
-[node name="Game" type="Node2D"]
+[node name="Scenario" type="Node2D"]
 script = ExtResource( 14 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -130,3 +130,8 @@ position = Vector2( 124, 87 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 161, 91 )
 current = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
