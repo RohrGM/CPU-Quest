@@ -3,16 +3,17 @@ extends StaticBody2D
 var _drop_message: String = "Finalizar"
 var _card: CardModel
 var _current_message: String
+var _scenario: Node2D
 
 func _ready():
-	pass # Replace with function body.
+	_scenario = find_parent("Scenario")
 
 ####### PUBLIC ###########################################################
 func interaction(player: KinematicBody2D) -> void:
 	player.send_card()
 
 func take_card(card: CardModel) -> void:
-	_card = card
+	_scenario.remove_card(card)
 
 func get_interaction_message() -> String:
 	return _current_message

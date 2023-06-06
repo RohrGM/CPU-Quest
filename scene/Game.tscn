@@ -49,10 +49,10 @@ shape = SubResource( 2 )
 [node name="Objects" type="YSort" parent="."]
 
 [node name="Pod2" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 112 )
+position = Vector2( 28, 109 )
 
 [node name="Pod4" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 142 )
+position = Vector2( 28, 139 )
 
 [node name="Pod5" parent="Objects" instance=ExtResource( 2 )]
 position = Vector2( 28, 80 )
@@ -125,7 +125,7 @@ position = Vector2( -15, 0 )
 position = Vector2( 124, 87 )
 
 [node name="End" parent="Objects" instance=ExtResource( 12 )]
-position = Vector2( 234, 122 )
+position = Vector2( 240, 97 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 160, 90 )
