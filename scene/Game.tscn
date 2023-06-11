@@ -49,19 +49,22 @@ shape = SubResource( 2 )
 [node name="Objects" type="YSort" parent="."]
 
 [node name="Pod2" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 109 )
+position = Vector2( 45, 128 )
+
+[node name="Pod3" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 82, 128 )
 
 [node name="Pod4" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 139 )
+position = Vector2( 45, 99 )
 
 [node name="Pod5" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 28, 80 )
+position = Vector2( 82, 98 )
 
 [node name="Board" parent="Objects" instance=ExtResource( 3 )]
 position = Vector2( 75, 81 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 76, 101 )
+position = Vector2( 166, 120 )
 collision_layer = 3
 collision_mask = 3
 

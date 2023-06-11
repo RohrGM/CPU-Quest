@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=1]
+[ext_resource path="res://assets/font/Default.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://script/Level.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 256, 128, 80 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 336, 128, 80 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 27
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Level" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 290.0
+margin_bottom = 110.0
+
+[node name="Fifo" type="TextureButton" parent="HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 80.0
+texture_normal = SubResource( 2 )
+texture_pressed = SubResource( 1 )
+texture_hover = SubResource( 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Fifo"]
+margin_top = 3.0
+margin_right = 128.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 3 )
+text = "FIFO"
+align = 1
+valign = 1
+
+[node name="RR" type="TextureButton" parent="HBoxContainer"]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 80.0
+texture_normal = SubResource( 2 )
+texture_pressed = SubResource( 1 )
+texture_hover = SubResource( 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer/RR"]
+margin_top = 3.0
+margin_right = 128.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 4 )
+text = "Round Robin"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="HBoxContainer/Fifo" to="." method="_on_Fifo_pressed"]
