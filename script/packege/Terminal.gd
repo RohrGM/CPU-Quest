@@ -10,6 +10,7 @@ var _priority_label: Label
 var _message_label: Label
 var _timer_label: Label
 var _status_label: Label
+var _stage_label: Label
 
 func _ready() -> void:
 	_id_label = $Box1/Id
@@ -19,6 +20,7 @@ func _ready() -> void:
 	_card_texture = $Box1/Card
 	_timer_label = $TimerSprite/Label
 	_status_label = $Box1/Status
+	_stage_label = $Box2/Stage
 	
 	set_card(null, 0)
 
@@ -36,3 +38,6 @@ func update_card(card: CardModel) -> void:
 
 func set_timer(time: int) -> void:
 	_timer_label.text = "Tempo: %02d" % time
+	
+func set_stage(value: String) -> void:
+	_stage_label.text = "Processos: " + value

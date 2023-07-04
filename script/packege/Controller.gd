@@ -20,10 +20,14 @@ func take_card(card: CardModel) -> void:
 	_card = card
 	_current_message = _take_message
 	_scenario.set_processing(true)
+	_scenario.get_validator().check_action(card, "insert")
 	$Terminal.set_card(card, _time)
 
 func get_interaction_message() -> String:
 	return _current_message
+	
+func set_stage(value: String) -> void:
+	$Terminal.set_stage(value)
 	 
 func set_timer(time: int) -> void:
 	_time = time
@@ -36,7 +40,6 @@ func set_timer(time: int) -> void:
 			_scenario.set_processing(false)
 		else:
 			_scenario.set_processing(true)
-			
 
 ####### PRIVATE ##########################################################
 func _ready():

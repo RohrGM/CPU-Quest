@@ -1,0 +1,296 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/font/MenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/img/gameDeniro.png" type="Texture" id=2]
+[ext_resource path="res://script/packege/Result.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 159.858, 109.631, 64.5624, 66.9341 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 208, 179, 14, 10 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 179, 14, 10 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 163.783, 121.795, 4.24091, 1.92769 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 128, 32 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_vertical_guides_": [ 160.0 ]
+}
+
+[node name="Book" type="Control" parent="."]
+margin_left = 75.0
+margin_top = 5.0
+margin_right = 235.0
+margin_bottom = 151.0
+
+[node name="TextureRect2D" type="TextureRect" parent="Book"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 67.0
+rect_scale = Vector2( 2.5, 2.2 )
+texture = SubResource( 1 )
+
+[node name="Page1" type="Control" parent="Book"]
+margin_left = 33.0
+margin_top = 10.0
+margin_right = 145.0
+margin_bottom = 134.0
+
+[node name="Label" type="Label" parent="Book/Page1"]
+margin_left = 1.00002
+margin_right = 163.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Fim da Simulação"
+
+[node name="Label2" type="Label" parent="Book/Page1"]
+margin_left = 1.00001
+margin_top = 65.0
+margin_right = 113.0
+margin_bottom = 83.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Score"
+
+[node name="Label3" type="Label" parent="Book/Page1"]
+margin_left = 1.00001
+margin_top = 26.0
+margin_right = 125.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Tempo Total"
+
+[node name="Label4" type="Label" parent="Book/Page1"]
+margin_left = 1.00001
+margin_top = 39.0
+margin_right = 221.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Processos Realizados"
+
+[node name="Label5" type="Label" parent="Book/Page1"]
+margin_left = 1.00002
+margin_top = 52.0
+margin_right = 221.0
+margin_bottom = 70.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Erros Encontrados"
+
+[node name="TT" type="Label" parent="Book/Page1"]
+margin_left = 24.0
+margin_top = 26.0
+margin_right = 244.0
+margin_bottom = 44.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "20"
+align = 2
+
+[node name="EE" type="Label" parent="Book/Page1"]
+margin_left = 24.0
+margin_top = 52.0
+margin_right = 244.0
+margin_bottom = 70.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "20"
+align = 2
+
+[node name="SC" type="Label" parent="Book/Page1"]
+margin_left = 24.0
+margin_top = 65.0
+margin_right = 244.0
+margin_bottom = 83.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "300"
+align = 2
+
+[node name="PR" type="Label" parent="Book/Page1"]
+margin_left = 24.0
+margin_top = 39.0
+margin_right = 244.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "20"
+align = 2
+
+[node name="LogsButton" type="TextureButton" parent="Book/Page1"]
+margin_left = 98.0
+margin_top = 114.0
+margin_right = 112.0
+margin_bottom = 124.0
+texture_normal = SubResource( 7 )
+texture_pressed = SubResource( 6 )
+texture_hover = SubResource( 6 )
+stretch_mode = 2
+
+[node name="Label2" type="Label" parent="Book/Page1/LogsButton"]
+margin_left = -64.0
+margin_top = 2.0
+margin_right = 98.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Log de Erros"
+align = 2
+
+[node name="Page2" type="Control" parent="Book"]
+visible = false
+margin_left = 33.0
+margin_top = 10.0
+margin_right = 145.0
+margin_bottom = 134.0
+
+[node name="Label" type="Label" parent="Book/Page2"]
+margin_left = 1.00002
+margin_right = 163.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Log de Erros"
+
+[node name="TextureRect" type="TextureRect" parent="Book/Page2"]
+margin_top = 13.0
+margin_right = 114.0
+margin_bottom = 113.0
+texture = SubResource( 5 )
+expand = true
+
+[node name="Log" type="RichTextLabel" parent="Book/Page2"]
+margin_left = 2.0
+margin_top = 15.0
+margin_right = 369.0
+margin_bottom = 335.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_text = "Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem"
+text = "Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem
+
+Processo %02d iniciou atendimento fora de ordem"
+
+[node name="ResultsButton" type="TextureButton" parent="Book/Page2"]
+margin_left = 1.0
+margin_top = 114.0
+margin_right = 15.0
+margin_bottom = 124.0
+texture_normal = SubResource( 7 )
+texture_pressed = SubResource( 6 )
+texture_hover = SubResource( 6 )
+stretch_mode = 2
+flip_h = true
+
+[node name="Label2" type="Label" parent="Book/Page2/ResultsButton"]
+margin_left = 13.0
+margin_top = 2.0
+margin_right = 175.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_colors/font_color = Color( 0.796078, 0.745098, 0.541176, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Voltar"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 95.0
+margin_top = 155.0
+margin_right = 355.0
+margin_bottom = 187.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+material = SubResource( 2 )
+margin_right = 128.0
+margin_bottom = 32.0
+texture_normal = SubResource( 3 )
+texture_pressed = SubResource( 4 )
+texture_hover = SubResource( 4 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Play"]
+margin_right = 128.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Jogar"
+align = 1
+valign = 1
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+material = SubResource( 2 )
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 32.0
+texture_normal = SubResource( 3 )
+texture_pressed = SubResource( 4 )
+texture_hover = SubResource( 4 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+margin_right = 128.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sair"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Book/Page1/LogsButton" to="." method="_on_LogsButton_pressed"]
+[connection signal="pressed" from="Book/Page2/ResultsButton" to="." method="_on_ResultsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

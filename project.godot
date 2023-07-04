@@ -14,21 +14,39 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://script/model/CardModel.gd"
 }, {
+"base": "Validator",
+"class": "FIFO",
+"language": "GDScript",
+"path": "res://script/validator/FIFO.gd"
+}, {
 "base": "Node",
 "class": "PodModel",
 "language": "GDScript",
 "path": "res://script/model/PodModel.gd"
+}, {
+"base": "Reference",
+"class": "Validator",
+"language": "GDScript",
+"path": "res://script/validator/Validator.gd"
 } ]
 _global_script_class_icons={
 "CardModel": "",
-"PodModel": ""
+"FIFO": "",
+"PodModel": "",
+"Validator": ""
 }
 
 [application]
 
 config/name="Projeto Escalonamento"
 run/main_scene="res://scene/Menu.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://assets/img/splash.png"
+config/icon="res://assets/img/icon.png"
+config/windows_native_icon="res://assets/img/icon.ico"
+
+[autoload]
+
+Global="*res://script/global/Global.gd"
 
 [display]
 

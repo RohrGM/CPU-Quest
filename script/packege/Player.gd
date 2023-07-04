@@ -36,7 +36,7 @@ func _has_finished_card() -> bool:
 	return _card.is_finish()
 	
 ####### PRIVATE ##########################################################
-func _ready():
+func _ready() -> void:
 	_anim = $Animation
 	_gui = $GUI
 	_card_sprite = $Animation/Sprite/Card
